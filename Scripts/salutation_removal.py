@@ -49,7 +49,12 @@ def get_signature(email_text):
                               "cordially",
                               "yours truly",
                               "thanking You",
-                              "sent from my iphone"]
+                              "sent from my iphone",
+                              "yours thankfully",
+                              "yours sincerely",
+                              'thankfully'
+                              'Best Wishes'
+                              ]
 
     pattern = "(?P<signature>(" + "|".join(sig_opening_statements) + ")+(.)*)"
     groups = re.search(pattern, email_text, re.IGNORECASE + re.DOTALL)
