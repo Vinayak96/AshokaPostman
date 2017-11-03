@@ -8,7 +8,7 @@ from nltk import pos_tag
 from nltk.corpus import stopwords
 from sklearn.naive_bayes import MultinomialNB
 
-dataframe = pandas.read_csv('Selected_Atrributes.csv')
+dataframe = pandas.read_csv('SelAttr.csv')
 colnames=dataframe.columns.values
 
 def POS_tag(a):
@@ -58,7 +58,7 @@ def Test_Conversion(s,b):
 
 
 
-dataframe = pandas.read_csv('Selected_Atrributes.csv')
+
 arr = dataframe.values
 subject="Registration"
 body="Hey, I wanted to know when the course registration starts? Regards, Poop."
