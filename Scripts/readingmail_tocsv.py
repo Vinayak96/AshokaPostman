@@ -119,8 +119,6 @@ The final_list will have dictionary in the following format:
 
 {	'Sender': '"email.com" <name@email.com>', 
 	'Subject': 'Lorem ipsum dolor sit ametLorem ipsum dolor sit amet', 
-	'Date': 'yyyy-mm-dd', 
-	'Snippet': 'Lorem ipsum dolor sit amet'
 	'Message_body': 'Lorem ipsum dolor sit amet'}
 
 
@@ -129,7 +127,7 @@ The dictionary can be exported as a .csv or into a databse
 
 #exporting the values as .csv
 with open('CSV_NAME.csv', 'w', encoding='utf-8', newline = '') as csvfile: 
-    fieldnames = ['Sender','Subject','Date','Snippet','Message_body']
+    fieldnames = ['Sender','Subject','Message_body']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames, delimiter = ',')
     writer.writeheader()
     for val in final_list:
