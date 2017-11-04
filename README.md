@@ -1,3 +1,8 @@
+
+#### [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues)   [![HitCount](http://hits.dwyl.com/{username}/{project-name}.svg)](http://hits.dwyl.com/{username}/{project-name})
+
+
+
 # CS309-IR-Monsoon-2017-ByteTheCode
 
 ## Team Members: Aditya P, Dibyendu Mishra, Sanchit Bansal, Vinayak Agarwal. 
