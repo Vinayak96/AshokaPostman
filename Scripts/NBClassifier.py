@@ -58,11 +58,11 @@ def Test_Conversion(s,b):
 
 
 
-def Dept_Classify():
+def Dept_Classify(s,b):
     arr = dataframe.values
     subject="Registration"
     body="Hey, I wanted to know when the course registration starts? Regards, Poop."
-    Test_Conversion(subject,body)
+    Test_Conversion(s,b)
     df1 = pandas.read_csv('TESTSET.csv')
     test = df1.values
     X = arr[:,0:-1]

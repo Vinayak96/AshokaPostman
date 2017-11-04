@@ -9,22 +9,26 @@ from nltk.corpus import stopwords
 from sklearn.naive_bayes import MultinomialNB
 from NBClassifier import Dept_Classify
 
-a = Dept_Classify()
-csv_file=''
+csv_file = ''
 test_file = ''
-if a == [1.]:
-    csv_file = 'IT_ATTR.csv'
-    test_file = 'IT_TEST.csv'
-if a == [2.]:
-    csv_file = 'OAA_ATTR.csv'
-    test_file = 'OAA_TEST.csv'
-if a ==[3.]:
-    csv_file = 'OSL_ATTR.csv'
-    test_file = 'OSL_TEST.csv'
+
+def Set_Classifier(s,b):
+    global csv_file, test_file,dataframe,colnames
+    a = Dept_Classify(s,b)
+    print(a)
+    if a == [1.]:
+        csv_file = 'IT_ATTR.csv'
+        test_file = 'IT_TEST.csv'
+    if a == [2.]:
+        csv_file = 'OAA_ATTR.csv'
+        test_file = 'OAA_TEST.csv'
+    if a ==[3.]:
+        csv_file = 'OSL_ATTR.csv'
+        test_file = 'OSL_TEST.csv'
 
 
-dataframe = pandas.read_csv(csv_file)
-colnames=dataframe.columns.values
+    dataframe = pandas.read_csv(csv_file)
+    colnames=dataframe.columns.values
 
 def POS_tag(a):
     if a.startswith('N'):
@@ -74,17 +78,18 @@ def Test_Conversion(s,b):
 
 
 
+def Reply_Classify(s,b):
+    arr = dataframe.values
 
-arr = dataframe.values
-subject="Course addition"
-body="Hey, Please add me to of history course. Regards Poop."
-Test_Conversion(subject,body)
-df1 = pandas.read_csv(test_file)
-test = df1.values
-X = arr[:,0:-1]
-Y = arr[:,-1:]
-Y = Y.ravel()
-clf = MultinomialNB().fit(X,Y)
-result = clf.predict(test)
-print(result)
+    subject="Course addition"
+    body="Hey, Please add me to of history course. Regards Poop."
+    Test_Conversion(s,b)
+    df1 = pandas.read_csv(test_file)
+    test = df1.values
+    X = arr[:,0:-1]
+    Y = arr[:,-1:]
+    Y = Y.ravel()
+    clf = MultinomialNB().fit(X,Y)
+    result = clf.predict(test)
+    return result
 
