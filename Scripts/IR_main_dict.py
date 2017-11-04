@@ -16,8 +16,8 @@ def POS_tag(a):
     else:
         return None
 
-xl = pd.ExcelFile('new.xlsx')
-df1 = xl.parse('Main')
+xl = pd.ExcelFile('OSL.xlsx')
+df1 = xl.parse('Sheet1')
 col1 = df1.Subject
 col2 = df1.Body
 col3 = []
@@ -75,7 +75,7 @@ for i in col3:
              t = lem.lemmatize(j,pos='v')
         if t in master_dict.keys():
             master_dict[t]+=1
-    writer=csv.writer(open('subjectBody.csv','a',newline=''))
+    writer=csv.writer(open('OSLCountVector.csv','a',newline=''))
     if m==0:
         writer.writerow(columns)
         m+=1
