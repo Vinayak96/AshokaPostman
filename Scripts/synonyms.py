@@ -6,13 +6,13 @@ from nltk.stem import PorterStemmer
 from nltk.corpus import stopwords
 
 dictionary = PyDictionary()
-'''synonyms =[]
-for syn in wordnet.synsets("removal"):
-    for l in syn.lemmas():
-        synonyms.append(l.name())
+synonyms =[]
+'''
 print(pos_tag(['functioning'])[0][1])
 lem = WordNetLemmatizer()
 print(lem.lemmatize('removal', pos='n'))'''
-print(dictionary.synonym("work"))
-
+for syn in wordnet.synsets("work"):
+    for l in syn.lemmas():
+        synonyms.append(l.name())
+print(set(synonyms))
 print(pos_tag(['Car']))
