@@ -4,9 +4,10 @@ import numpy
 from sklearn.feature_selection import SelectKBest
 from sklearn.feature_selection import chi2
 from sklearn.feature_extraction.text import TfidfTransformer
+import csv
 # load data
 transformer = TfidfTransformer(smooth_idf=False)
-dataframe = pandas.read_csv('tfidf.csv')
+dataframe = pandas.read_csv('OSL_TFIDF.csv')
 f = list(dataframe.columns.values)
 array = dataframe.values
 X = array[:,0:-1]
@@ -16,6 +17,13 @@ fit = test.fit(X, Y)
 numpy.set_printoptions(precision=3)
 features = fit.transform(X)
 a = test.get_support(True)
-atr = a.tolist()
-for i in atr:
-    print(f[i])
+a = a.tolist()
+atr = []
+for i in a:
+    atr.append(f[i])
+writer = csv.writer(open('OSL_ATTR.csv','a',newline=''))
+writer.writerow(atr)
+for i in features:
+   k = i.tolist()
+   writer.writerow(k)
+
