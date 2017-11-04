@@ -58,16 +58,16 @@ def Test_Conversion(s,b):
 
 
 
-
-arr = dataframe.values
-subject="Registration"
-body="Hey, I wanted to know when the course registration starts? Regards, Poop."
-Test_Conversion(subject,body)
-df1 = pandas.read_csv('TESTSET.csv')
-test = df1.values
-X = arr[:,0:-1]
-Y = arr[:,-1:]
-Y = Y.ravel()
-clf = MultinomialNB().fit(X,Y)
-result = clf.predict(test)
-print(result)
+def Dept_Classify():
+    arr = dataframe.values
+    subject="Registration"
+    body="Hey, I wanted to know when the course registration starts? Regards, Poop."
+    Test_Conversion(subject,body)
+    df1 = pandas.read_csv('TESTSET.csv')
+    test = df1.values
+    X = arr[:,0:-1]
+    Y = arr[:,-1:]
+    Y = Y.ravel()
+    clf = MultinomialNB().fit(X,Y)
+    result = clf.predict(test)
+    return result
