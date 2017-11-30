@@ -7,4 +7,4 @@
 
 #### Resources : Python, Flask, Weka , Microsoft Excel , CSS , HTML5
 
-![EASY EMAIL](https://raw.githubusercontent.com/ashoka-university/CS309-IR-Monsoon-2017-ByteTheCode/master/FrontEnd/static/EasyEmail_IR.png?token=AMewlLZZnHYKeiyOtPFuYlyb8QWlFW4_ks5aBjxVwA%3D%3D)
+![EASY EMAIL](https://raw.githubusercontent.com/ashoka-university/CS309-IR-Monsoon-2017-ByteTheCode/master/FrontEnd/static/EasyEmail_IR.png?token=AMewlIOyEYUuhAz2MfFXadTT7OIhHZavks5aKRwVwA%3D%3D)
