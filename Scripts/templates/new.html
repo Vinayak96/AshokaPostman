@@ -8,8 +8,21 @@ var con=confirm("Sending the Response, Thanks for using EASY EMAIL");
 }
 </script>
 
-<script data-cfasync="false" type="text/javascript"
-src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-server/master/form-submission-handler.js"></script>
+<script>
+
+  $( document ).ready(function() {
+    ///
+});
+
+$("#submit").onclick(function"() {
+  $.post( "url_for('main.calculate')", function( data ) {
+     $("#smallest_word").val(data.smallest);
+     $("#longest_word").val(data.longest);
+  });
+
+});
+
+</script>
 
 </head>
 <body>
@@ -26,8 +39,7 @@ src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-
 
 
 
-          <form id='gform1' method="POST" action="https://script.google.com/macros/u/0/s/AKfycbxpKMVWg4UnGs4HSn3nikh9bcaLHR4_JEGc1mONsps_a4KGuuf6/exec">
-          <textarea type="sender" name="sender" class="card-text" rows="1" cols="35">{{email_sender}}</textarea>
+          <form id='gform1' method="POST" >
           <textarea type="subject" name="subject" class="card-text" rows="1" cols="35">{{email_subject}}</textarea>
           <textarea type="name" name="name" class="card-text" rows="3" cols="35">{{freply1}}</textarea>
           <br><input type="submit" name="my-form" type="button" onclick="conf()" class="btn btn-primary" value="REPLY">
@@ -44,8 +56,7 @@ src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-
       <h4 class="card-title">SECOND SUGGESTION</h4>
 
 
-          <form id='gform1' method="POST" action="https://script.google.com/macros/u/0/s/AKfycbxpKMVWg4UnGs4HSn3nikh9bcaLHR4_JEGc1mONsps_a4KGuuf6/exec">
-          <textarea type="sender" name="sender" class="card-text" rows="1" cols="35">{{email_sender}}</textarea>
+          <form id='gform1' method="POST" >
           <textarea type="subject" name="subject" class="card-text" rows="1" cols="35">{{email_subject}}</textarea>
           <textarea type="name" name="name" class="card-text" rows="3" cols="35">{{freply2}}</textarea>
           <br><input type="submit" name="my-form" type="button" onclick="conf()" class="btn btn-warning" value="REPLY">
@@ -61,8 +72,7 @@ src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-
     <div class="card-block">
       <h4 class="card-title">THIRD SUGGESTION</h4>
 
-          <form id='gform1' method="POST" action="https://script.google.com/macros/u/0/s/AKfycbxpKMVWg4UnGs4HSn3nikh9bcaLHR4_JEGc1mONsps_a4KGuuf6/exec">
-          <textarea type="sender" name="sender" class="card-text" rows="1" cols="35">{{email_sender}}</textarea>
+          <form id='gform1' method="POST">
           <textarea type="subject" name="subject" class="card-text" rows="1" cols="35">{{email_subject}}</textarea>
           <textarea type="name" name="name" class="card-text" rows="3" cols="35">{{freply3}}</textarea>
           <br><input type="submit" name="my-form" type="button" onclick="conf()" class="btn btn-info" value="REPLY">

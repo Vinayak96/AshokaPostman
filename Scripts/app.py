@@ -42,7 +42,7 @@ def mapToReply(a):
        return("Please come to the reception and collect it.","We haven't received the bills from you yet.","We'll let you know once it's ready.")
 @app.route('/')
 def my_form():
-  name,sender,subject,body=FetchEmail()
+  name,sender,subject,body=FetchMail()
   return render_template("index.html",email_name=name,email_sender=sender,email_subject=subject,email_body=body)
 
 @app.route('/', methods=['POST'])
@@ -60,7 +60,7 @@ def my_form_post():
     reply3 = a[2]
     print(reply1,reply2,reply3)
   
-    return render_template("new.html",freply1=reply1,freply2=reply2,freply3=reply3,email_sender=sender,email_subject=subject)
+    return render_template("new.html",freply1=reply1,freply2=reply2,freply3=reply3,email_subject=subject)
 
 
 
