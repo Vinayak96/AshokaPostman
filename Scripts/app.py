@@ -2,9 +2,13 @@ from flask import Flask
 from flask import request
 from flask import render_template
 from Reply_Classifier import *
-
+from FetchEmail import *
 app = Flask(__name__)
 Reply_Set=[]
+
+
+
+
 def mapToReply(a):
     print(a)
     if a==[1.]:
@@ -38,7 +42,8 @@ def mapToReply(a):
        return("Please come to the reception and collect it.","We haven't received the bills from you yet.","We'll let you know once it's ready.")
 @app.route('/')
 def my_form():
-    return render_template("index.html")
+  name,sender,subject,body=FetchEmail()
+  return render_template("index.html",email_name=name,email_sender=sender,email_subject=subject,email_body=body)
 
 @app.route('/', methods=['POST'])
 def my_form_post():
