@@ -59,7 +59,10 @@ def my_form_post():
     reply2 = a[1]
     reply3 = a[2]
     print(reply1,reply2,reply3)
-    return render_template("new.html",freply1=reply1,freply2=reply2,freply3=reply3)
+  
+    return render_template("new.html",freply1=reply1,freply2=reply2,freply3=reply3,email_sender=sender,email_subject=subject)
+
+
 
 if __name__ == '__main__':
     app.debug = True
