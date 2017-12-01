@@ -2,7 +2,7 @@ import re
 import string
 
 def get_salutation(email_text):
-
+    
     salutation_opening_statements = ["sir",
                                      "ma'am",
                                      "greetings",
@@ -16,8 +16,9 @@ def get_salutation(email_text):
                                      "good afternoon",
                                      "good evening",
                                      "thankyou",
-                                     "thank you"]
-    pattern = "\s*(?P<salutation>(" + "|".join(salutation_opening_statements) + ")+(\s*\w*)(\s*\w*)(\s*\w*)(\s*\w*)(\s*\w*)[\.,\xe2:]+\s*)"
+                                     "thank you",
+                                     "Sir/Ma'am"]
+    pattern = "(?P<salutation>(" + "|".join(salutation_opening_statements) + ")+(\s*\w*)(\s*\w*)(\s*\w*)(\s*\w*)(\s*\w*)[\.,\xe2:]+\s*)"
     groups = re.match(pattern, email_text, re.IGNORECASE)
     salutation = None
     if not groups is None:
@@ -56,7 +57,7 @@ def get_signature(email_text):
                               'Best Wishes'
                               ]
 
-    pattern = "(?P<signature>(" + "|".join(sig_opening_statements) + ")+(.)*)"
+    pattern = "\s*(?P<signature>(" + "|".join(sig_opening_statements) + ")+(.)*)"
     groups = re.search(pattern, email_text, re.IGNORECASE + re.DOTALL)
     signature = None
     if groups:
@@ -80,15 +81,19 @@ def get_signature(email_text):
     return(signature)
 
 def get_body(email_text, check_salutation=True, check_signature=True, check_reply_text=True):
-    
+    email_text=email_text.replace("\\"," ")
     if check_salutation:
         sal = get_salutation(email_text)
+        print(sal)
         if sal: email_text = email_text[len(sal):]
     
     if check_signature:
         sig = get_signature(email_text)
         if sig: email_text = email_text[:email_text.find(sig)]          
     return( email_text)
+
+print(get_body("Dear Sir/Ma'am, The wifi in my room is not working. I live in Room 7 of SH-3. Please help me with this. Thanks and Regards, XYZ"))
+
 
 
 
