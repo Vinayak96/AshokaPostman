@@ -3,6 +3,9 @@ from flask import request
 from flask import render_template
 from Reply_Classifier import *
 from FetchEmail import *
+from Send_Email import * 
+import smtplib
+
 app = Flask(__name__)
 Reply_Set=[]
 
@@ -62,6 +65,24 @@ def my_form_post():
   
     return render_template("new.html",freply1=reply1,freply2=reply2,freply3=reply3,email_subject=subject)
 
+
+
+def new_reply():
+
+	sug_reply=request.form['reply']
+
+	FROM='ashokapostman@gmail.com'
+	TO=sender
+	message=sug_reply
+
+	server_ssl = smtplib.SMTP_SSL("smtp.gmail.com", 465)
+	server_ssl.ehlo() # optional, called by login()
+	server_ssl.login('ashokapostman@gmail.com','DIBYENDU1997')  
+	# ssl server doesn't support or need tls, so don't call server_ssl.starttls() 
+	server_ssl.sendmail(FROM, TO, message)
+	#server_ssl.quit()
+	server_ssl.close()
+	print('successfully sent the mail')
 
 
 if __name__ == '__main__':
