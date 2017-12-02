@@ -16,7 +16,7 @@ def get_google_spelling(phrase):
 
 def get_spell_tag(page):
     soup = BeautifulSoup(page.text, 'html.parser')
-    spell_tag=soup.find_all('a',{'class' : 'spell','id':'fprsl'})
+    spell_tag=soup.find_all('a',{'class' : 'spell'})
     if(len(spell_tag)==0):
        spell_tag=soup.find_all('span',{'class' : 'spell'})[0].a
     else:
